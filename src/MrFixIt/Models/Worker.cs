@@ -21,10 +21,14 @@ namespace MrFixIt.Models
         //this comes from Identity.User
         public virtual ICollection<Job> Jobs { get; set; }
 
-        public Worker()
+        public Worker( string first, string last, string userName, bool available = true, int id = 0)
         {
-            Available = true;
+            FirstName = first;
+            LastName = last;
+            Available = available;
+            UserName = userName;
+            WorkerId = id;
         }
-
+        public Worker() { }
     }
 }

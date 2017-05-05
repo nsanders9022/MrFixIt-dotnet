@@ -16,13 +16,11 @@
             
             @if (Job.Worker == null)
             {
-                <li><span class="property">Claim status: </span>This job is unclaimed. <span class="claim link" id="@Job.JobId">Claim this job</span></li>
-                <div id="claim-show-@Job.JobId">
-
-                </div>
-
                 <div id="claim-result-@Job.JobId">
+                    <li><span class="property">Claim status: </span>This job is unclaimed. <span class="claim link" id="@Job.JobId">Claim this job</span></li>
+                    <div id="claim-show-@Job.JobId">
 
+                    </div>
                 </div>
             }
             else

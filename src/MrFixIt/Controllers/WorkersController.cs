@@ -37,6 +37,7 @@ namespace MrFixIt.Controllers
         public IActionResult Create(Worker worker)
         {
             worker.UserName = User.Identity.Name;
+            worker.Available = true;
             db.Workers.Add(worker); 
             db.SaveChanges();
             return RedirectToAction("Index");

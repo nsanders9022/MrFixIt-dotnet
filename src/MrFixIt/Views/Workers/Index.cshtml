@@ -8,23 +8,44 @@
 {
 
     <div class="text-center">
-        <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
-        <h3>Your Current Jobs:</h3>
-        @foreach (var Job in Model.Jobs)
-        {
-            <h5>@Job.Title</h5>
-            <h6>Pending: @Job.Pending</h6>
-            <h6>Completed: @Job.Completed</h6>
-
-        }
+        <h4>Hello Worker @Model.FirstName @Model.LastName. You are logged in.</h4>
         @if (Model.Available)
         {
-            <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
+            <h4>Please @Html.ActionLink("select a job", "Index", "Jobs") and mark as active to begin working on a project.</h4>
         }
         else
         {
             <p>You are already assigned to a job.</p>
         }
 
+        <div class="row">
+            <div class="col-xs-4">
+                <h3>Your Current Jobs:</h3>
+                @foreach (var Job in Model.Jobs)
+                {
+                    <h5>@Job.Title</h5>
+                }
+            </div>
+            <div class="col-xs-4">
+                <h3>Your Active Jobs</h3>
+                @foreach (var Job in Model.Jobs)
+                {
+                    @if (Job.Pending && Job.Completed != true)
+                    {
+                        <h5>@Job.Title</h5>
+                    }
+                }
+            </div>
+            <div class="col-xs-4">
+                <h3>Your Completed Jobs</h3>
+                @foreach (var Job in Model.Jobs)
+                {
+                    @if (Job.Completed)
+                    {
+                        <h5>@Job.Title</h5>
+                    }
+                }
+            </div>
+        </div>   
     </div>
 }

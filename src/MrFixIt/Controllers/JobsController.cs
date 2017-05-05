@@ -58,7 +58,6 @@ namespace MrFixIt.Controllers
             thisJob.Pending = true;
             db.Entry(thisJob).State = EntityState.Modified;
             db.SaveChanges();
-            Console.WriteLine(thisJob.Pending);
             return View(thisJob);
         }
 
@@ -69,7 +68,6 @@ namespace MrFixIt.Controllers
             thisJob.Completed = true;
             db.Entry(thisJob).State = EntityState.Modified;
             db.SaveChanges();
-            Console.WriteLine(thisJob.Pending);
             return View(thisJob);
         }
     }
