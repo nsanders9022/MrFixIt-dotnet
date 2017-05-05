@@ -7,7 +7,6 @@ using MrFixIt.Models;
 using Microsoft.AspNetCore.Identity;
 using MrFixIt.ViewModels;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MrFixIt.Controllers
 {
@@ -33,12 +32,12 @@ namespace MrFixIt.Controllers
         //    return View();
         //}
 
-            //Displays Account index page. Displays differently depending on if user is signed in or not.
+        //Displays Account index page. Displays differently depending on if user is signed in or not.
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
             {
-                var thisWorker = db.Workers.FirstOrDefault(item => item.UserName == User.Identity.Name);
+                var thisWorker = db.Workers.FirstOrDefault(users => users.UserName == User.Identity.Name);
                 return View(thisWorker);
             }
             else

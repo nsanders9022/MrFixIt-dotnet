@@ -37,8 +37,8 @@ namespace MrFixIt.Controllers
         //Displays Claim partial
         public IActionResult Claim(int id)
         {
-            var thisItem = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
-            return View(thisItem);
+            var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
+            return View(thisJob);
         }
 
         //Posts worker who claimed job to database
@@ -51,7 +51,7 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
-        //Displays activate parital
+        //Displays activate parital and posts pendings change to database
         public IActionResult Activate(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
@@ -62,7 +62,7 @@ namespace MrFixIt.Controllers
             return View(thisJob);
         }
 
-        //Displays complete partial
+        //Displays complete partial and posts completed change to database
         public IActionResult Complete(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
