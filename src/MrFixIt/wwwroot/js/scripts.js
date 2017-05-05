@@ -25,4 +25,16 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.claim').click(function () {
+        var route = '#claim-result-' + this.id;
+        console.log(this.id);
+        $.ajax({
+            type: 'GET',
+            url: 'Jobs/Claim/' + this.id,
+            success: function (result) {
+                $(route).html(result);
+            }
+        });
+    });
 });
