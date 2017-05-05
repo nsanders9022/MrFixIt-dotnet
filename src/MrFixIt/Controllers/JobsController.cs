@@ -57,5 +57,15 @@ namespace MrFixIt.Controllers
             Console.WriteLine(thisJob.Pending);
             return View(thisJob);
         }
+
+        public IActionResult Complete(int id)
+        {
+            var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
+            thisJob.Completed = true;
+            db.Entry(thisJob).State = EntityState.Modified;
+            db.SaveChanges();
+            Console.WriteLine(thisJob.Pending);
+            return View(thisJob);
+        }
     }
 }

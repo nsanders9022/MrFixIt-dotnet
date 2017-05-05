@@ -13,4 +13,16 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.complete').click(function () {
+        var route = '#complete-result-' + this.id;
+        console.log(this.id);
+        $.ajax({
+            type: 'GET',
+            url: 'Jobs/Complete/' + this.id,
+            success: function (result) {
+                $(route).html(result);
+            }
+        });
+    });
 });

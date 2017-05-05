@@ -32,8 +32,19 @@
         }
         else
         {
-            <li class="btn">HI</li>
+            <li class="btn">This job has been activated</li>
 
+        }
+
+        @if (Job.Completed == false)
+        {
+            <li class="btn">This job has not been completed yet. <span class="complete" id="@Job.JobId">Complete this job</span></li>
+            <p id="complete-result-@Job.JobId">
+            </p>
+        }
+        else
+        {
+            <li class="btn">This job has been completed</li>
         }
     </ul>
 
