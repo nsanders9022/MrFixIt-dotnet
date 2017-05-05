@@ -1,10 +1,10 @@
-# _Mr. FixIt_
+# _Mr. Fix-It_
 
 #### By _**Nicole Sanders**_
 
 ## Description
 
-_Workers can sign in and claim jobs to work on. They can mark them as pending or complete. _
+Workers can sign in and claim jobs to work on. They can mark them as pending or complete.
 
 ## Setup/Installation Requirements
 
@@ -42,9 +42,3 @@ _.NET, MSSQL, AJAX_
 *Available under an MIT License*
 
 Copyright (c) 2017 **_Nicole Sanders_**
-
-
-
-### Mr Fix-It
-#### A repair technician job service.
-
