@@ -17,7 +17,7 @@ namespace MrFixIt.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View(db.Jobs.Include(i => i.Worker).ToList());
+            return View(db.Jobs.Include(workers => workers.Worker).ToList());
         }
 
         public IActionResult Create()
@@ -35,21 +35,22 @@ namespace MrFixIt.Controllers
 
         public IActionResult Claim(int id)
         {
-            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
+            var thisItem = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
             return View(thisItem);
         }
 
         [HttpPost]
         public IActionResult Claim(Job job)
         {
-            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
+            job.Worker = db.Workers.FirstOrDefault(jobs => jobs.UserName == User.Identity.Name);
             db.Entry(job).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public IActionResult Activate()
+        public IActionResult Activate( int id)
         {
+            var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
             return Content("You have activated this job. Mark as complete when finished");
         }
     }
