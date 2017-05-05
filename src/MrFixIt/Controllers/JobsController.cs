@@ -48,10 +48,11 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Activate( int id)
+        public IActionResult Activate(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
-            return Content("You have activated this job. Mark as complete when finished");
+            //thisJob.UpdatePending(thisJob.JobId);
+            return View(thisJob);
         }
     }
 }

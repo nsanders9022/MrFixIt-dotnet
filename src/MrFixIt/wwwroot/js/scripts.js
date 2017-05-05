@@ -3,11 +3,13 @@
 
 $(document).ready(function () {
     $('.activate').click(function () {
+        var route = '#activate-result-' + this.id;
+        console.log(this.id);
         $.ajax({
             type: 'GET',
-            url: 'Jobs/Activate',
+            url: 'Jobs/Activate/' + this.id,
             success: function (result) {
-                $('#activate-result').html(result);
+                $(route).html(result);
             }
         });
     });

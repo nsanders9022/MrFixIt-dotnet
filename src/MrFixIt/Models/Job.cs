@@ -16,10 +16,19 @@ namespace MrFixIt.Models
         public bool Pending { get; set; }
         public virtual Worker Worker { get; set; }
 
+        public Job() { }
+
         public Worker FindWorker(string UserName)
         {
             Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(i => i.UserName == UserName);
             return thisWorker;
         }
+
+        public void UpdatePending(int id)
+        {
+            Job thisJob = new MrFixItContext().Jobs.FirstOrDefault(jobs => jobs.JobId == id);
+            thisJob.Pending = true;
+        }
+
     }
 }

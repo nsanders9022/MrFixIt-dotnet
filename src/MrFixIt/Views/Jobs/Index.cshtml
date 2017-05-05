@@ -26,8 +26,8 @@
 
         @if (Job.Pending == false)
         {
-            <li class="btn">This job has not been started yet. <span class="activate">Activate this job</span></li>
-            <li id="activate-result"></li>
+            <li class="btn">This job has not been started yet. <span class="activate" id="@Job.JobId">Activate this job</span></li>
+            <p id="activate-result-@Job.JobId"></p>
         }
         else
         {
