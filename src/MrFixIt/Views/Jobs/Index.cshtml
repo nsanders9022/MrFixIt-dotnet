@@ -28,6 +28,10 @@
         @if (Job.Worker == null)
         {
             <li class="btn">This job is unclaimed. <span class="claim" id="@Job.JobId">Claim this job</span></li>
+            <div id="claim-show-@Job.JobId">
+
+            </div>
+
             <div id="claim-result-@Job.JobId">
 
             </div>

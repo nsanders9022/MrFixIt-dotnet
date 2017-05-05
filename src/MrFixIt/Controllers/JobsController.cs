@@ -48,6 +48,16 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
+        //[HttpPost]
+        //public IActionResult Claim(string title, string description, bool completed, bool pending, int jobId)
+        //{
+        //    var job = db.Jobs.FirstOrDefault(jobs => jobs.JobId == jobId);
+        //    job.Worker = db.Workers.FirstOrDefault(jobs => jobs.UserName == User.Identity.Name);
+        //    db.Entry(job).State = EntityState.Modified;
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
         public IActionResult Activate(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);

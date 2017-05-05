@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 
     $('.claim').click(function () {
-        var route = '#claim-result-' + this.id;
+        var route = '#claim-show-' + this.id;
         console.log(this.id);
         $.ajax({
             type: 'GET',
@@ -37,4 +37,19 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.claim-job').submit(function (event) {
+        event.preventDefault();
+        var route = '#claim-result-' + this.id;
+        $.ajax({
+            url: 'Jobs/Claim/' + this.id,
+            type: 'POST',
+            dataTyle: 'json',
+            data: $(this).serialize(),
+            success: function (result) {
+                var resultMessage = "Job has been claimed";
+                $(route).html(resultMessage);
+            }
+        })
+    })
 });
