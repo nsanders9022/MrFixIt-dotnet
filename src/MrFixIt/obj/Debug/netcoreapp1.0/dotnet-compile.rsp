@@ -218,6 +218,10 @@ C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\JobsContro
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\WorkersController.cs
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.cs
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.Designer.cs
+C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505170647_FixedAvailable.cs
+C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505170647_FixedAvailable.Designer.cs
+C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505170710_FixedAvailableBuild.cs
+C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505170710_FixedAvailableBuild.Designer.cs
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\MrFixItContextModelSnapshot.cs
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\ApplicationUser.cs
 C:\Users\Nicole Laptop\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\Job.cs

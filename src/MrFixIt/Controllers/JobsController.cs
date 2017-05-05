@@ -47,5 +47,10 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Activate()
+        {
+            return Content("You have activated this job. Mark as complete when finished");
+        }
     }
 }

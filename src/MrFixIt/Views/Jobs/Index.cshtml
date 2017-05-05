@@ -23,6 +23,17 @@
             <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
 
         }
+
+        @if (Job.Pending == false)
+        {
+            <li class="btn">This job has not been started yet. <span class="activate">Activate this job</span></li>
+            <li id="activate-result"></li>
+        }
+        else
+        {
+            <li class="btn">HI</li>
+
+        }
     </ul>
 
 
