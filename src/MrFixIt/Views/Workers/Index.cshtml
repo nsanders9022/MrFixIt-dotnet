@@ -13,6 +13,8 @@
         @foreach (var Job in Model.Jobs)
         {
             <h5>@Job.Title</h5>
+            <h6>Pending: @Job.Pending</h6>
+            <h6>Completed: @Job.Completed</h6>
 
         }
         @if (Model.Available)
@@ -23,5 +25,6 @@
         {
             <p>You are already assigned to a job.</p>
         }
+
     </div>
 }
