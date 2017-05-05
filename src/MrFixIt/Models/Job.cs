@@ -24,10 +24,9 @@ namespace MrFixIt.Models
             return thisWorker;
         }
 
-        public void UpdatePending(int id)
+        public void UpdatePending()
         {
-            Job thisJob = new MrFixItContext().Jobs.FirstOrDefault(jobs => jobs.JobId == id);
-            thisJob.Pending = true;
+            Pending = true;
         }
 
     }

@@ -51,7 +51,10 @@ namespace MrFixIt.Controllers
         public IActionResult Activate(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
-            //thisJob.UpdatePending(thisJob.JobId);
+            thisJob.Pending = true;
+            db.Entry(thisJob).State = EntityState.Modified;
+            db.SaveChanges();
+            Console.WriteLine(thisJob.Pending);
             return View(thisJob);
         }
     }
