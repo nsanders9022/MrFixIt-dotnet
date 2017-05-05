@@ -29,3 +29,10 @@ img {
 #tools {
     float:right;
 }
+.italicize {
+    font-style: italic;
+}
+
+.subheader {
+    color: gray;
+}
