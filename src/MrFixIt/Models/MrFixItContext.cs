@@ -9,6 +9,7 @@ namespace MrFixIt.Models
         {
         }
 
+        //Creates database tables
         public virtual DbSet<Job> Jobs { get; set; }
 
         public virtual DbSet<Worker> Workers { get; set; }

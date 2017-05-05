@@ -2,6 +2,7 @@
 //console.log(test);
 
 $(document).ready(function () {
+    //Displays result of marking a job as active
     $('.activate').click(function () {
         var route = '#activate-result-' + this.id;
         console.log(this.id);
@@ -14,6 +15,7 @@ $(document).ready(function () {
         });
     });
 
+    //Displays result of marking a job as complete
     $('.complete').click(function () {
         var route = '#complete-result-' + this.id;
         console.log(this.id);
@@ -26,6 +28,7 @@ $(document).ready(function () {
         });
     });
 
+    //Displays claim button
     $('.claim').click(function () {
         var route = '#claim-show-' + this.id;
         console.log(this.id);
@@ -38,6 +41,7 @@ $(document).ready(function () {
         });
     });
 
+    //Posts change to database - user claims a job
     $('.claim-job').submit(function (event) {
         event.preventDefault();
         var route = '#claim-result-' + this.id;

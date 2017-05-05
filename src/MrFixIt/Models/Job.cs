@@ -18,9 +18,10 @@ namespace MrFixIt.Models
 
         public Job() { }
 
+        //A method to get a worker while within the job class
         public Worker FindWorker(string UserName)
         {
-            Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(i => i.UserName == UserName);
+            Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(users => users.UserName == UserName);
             return thisWorker;
         }
     }

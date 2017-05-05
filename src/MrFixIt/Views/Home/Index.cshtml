@@ -5,6 +5,8 @@
 
 <h4>Welcome to Mr Fix-It</h4>
 
+@*Displays the user's information if they are logged in*@
+
 @if (User.Identity.IsAuthenticated)
 {
     <p>@User.Identity.Name</p>

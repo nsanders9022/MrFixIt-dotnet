@@ -7,6 +7,7 @@
     <h3>Our Current Jobs</h3>
     @Html.ActionLink("Add a new job", "Create")
 </div>
+@*loops through all jobs that have been added*@
 @foreach (var Job in Model)
 {
     <ul>
@@ -14,15 +15,18 @@
         <ul>
             <li><span class="property">Description:</span> @Job.Description</li>
             
+            @*If no user has claimed this job yet this is shown*@
             @if (Job.Worker == null)
             {
                 <div id="claim-result-@Job.JobId">
+                    @*Last span initiates AJAX call when clicked. Result is shown in the div surrounding it*@
                     <li><span class="property">Claim status: </span>This job is unclaimed. <span class="claim link" id="@Job.JobId">Claim this job</span></li>
                     <div id="claim-show-@Job.JobId">
 
                     </div>
                 </div>
             }
+            @*If a user has claimed a job this is shown*@
             else
             {
                 <li><span class="property">Claim status: </span>This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
@@ -30,25 +34,30 @@
             }
 
 
-
+            @*If a job is not currently pending this is shown*@
             @if (Job.Pending == false)
             {
                 <div id="activate-result-@Job.JobId">
+                    @*Last span initiates AJAX call when clicked. Result is shown in the div surrounding it*@
                     <li><span class="property">Active status: </span>This job has not been started yet. <span class="activate link" id="@Job.JobId">Activate this job</span></li>
                 </div>
             }
+            @*If a job is pending this is shown*@
             else
             {
                 <li><span class="property">Active status: </span>This job has been activated</li>
 
             }
 
+            @*If a job is not completed this is shown*@
             @if (Job.Completed == false)
             {
                 <div id="complete-result-@Job.JobId">
+                    @*Last span initiates AJAX call when clicked. Result is shown in the div surrounding it*@
                     <li><span class="property">Completion status: </span>This job has not been completed yet. <span class="complete link" id="@Job.JobId">Complete this job</span></li>
                 </div>
             }
+            @*If a job is completed this is shown*@
             else
             {
                 <li><span class="property">Completion status: </span>This job has been completed</li>

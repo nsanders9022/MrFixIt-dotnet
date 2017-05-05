@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MrFixIt.ViewModels
 {
+    //ViewModel for registering
     public class RegisterViewModel
     {
         [Required]

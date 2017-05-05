@@ -3,21 +3,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@*Checks to see if the user is logged in. If so the following is displayed*@
 @if (User.Identity.IsAuthenticated)
 {
 
     <div class="text-center">
         <h3>Hello @Model.FirstName @Model.LastName.</h3>
+        @*If the user is not currently working on any project this is shown*@
         @if (Model.Available)
         {
             <h4>Please @Html.ActionLink("select a job", "Index", "Jobs") and mark as active to begin working on a project.</h4>
         }
+        @*Otherwise this is shown*@
         else
         {
             <p>You are already assigned to a job.</p>
         }
 
+        @*Displays a list of all claimed, active, and completed jobs for the signed in user*@
         <div class="row">
             <div class="col-xs-4">
                 <h3>All Claimed Jobs:</h3>
