@@ -3,3 +3,11 @@
     color: navy;
 }
 
+.link {
+    text-decoration: underline;
+    color: blue;
+}
+
+.property {
+    font-weight: bold;
+}

@@ -6,9 +6,6 @@
 
 @model MrFixIt.Models.Job
 
-<h2>Would you like to do this job?</h2>
-<hr />
-
 <form action="Claim" class="claim-job" id="@Model.JobId">
     <input type="hidden" name="jobId" value="@Model.JobId" />
     <input type="hidden" name="title" value="@Model.Title" />
@@ -16,8 +13,7 @@
     <input type="hidden" name="completed" value="@Model.Completed" />
     <input type="hidden" name="pending" value="@Model.Pending" />
 
-    <h4>@Model.Title</h4>
-    <button type="submit">Claim this job</button>
+    <button type="submit">Claim @Model.Title</button>
 
 
 </form>

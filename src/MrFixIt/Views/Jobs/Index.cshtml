@@ -10,62 +10,52 @@
 @foreach (var Job in Model)
 {
     <ul>
-        <li>@Job.Title</li>
+        <h3>@Job.Title</h3>
         <ul>
-            <li>@Job.Description</li>
+            <li><span class="property">Description:</span> @Job.Description</li>
+            
+            @if (Job.Worker == null)
+            {
+                <li><span class="property">Claim status: </span>This job is unclaimed. <span class="claim link" id="@Job.JobId">Claim this job</span></li>
+                <div id="claim-show-@Job.JobId">
+
+                </div>
+
+                <div id="claim-result-@Job.JobId">
+
+                </div>
+            }
+            else
+            {
+                <li><span class="property">Claim status: </span>This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+
+            }
+
+
+
+            @if (Job.Pending == false)
+            {
+                <div id="activate-result-@Job.JobId">
+                    <li><span class="property">Active status: </span>This job has not been started yet. <span class="activate link" id="@Job.JobId">Activate this job</span></li>
+                </div>
+            }
+            else
+            {
+                <li><span class="property">Active status: </span>This job has been activated</li>
+
+            }
+
+            @if (Job.Completed == false)
+            {
+                <div id="complete-result-@Job.JobId">
+                    <li><span class="property">Completion status: </span>This job has not been completed yet. <span class="complete link" id="@Job.JobId">Complete this job</span></li>
+                </div>
+            }
+            else
+            {
+                <li><span class="property">Completion status: </span>This job has been completed</li>
+            }
         </ul>
-        @*@if (Job.Worker == null)
-        {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
-        }
-        else
-        {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
-        }*@
-
-
-        @if (Job.Worker == null)
-        {
-            <li class="btn">This job is unclaimed. <span class="claim" id="@Job.JobId">Claim this job</span></li>
-            <div id="claim-show-@Job.JobId">
-
-            </div>
-
-            <div id="claim-result-@Job.JobId">
-
-            </div>
-        }
-        else
-        {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
-
-        }
-
-
-
-        @if (Job.Pending == false)
-        {
-            <li class="btn">This job has not been started yet. <span class="activate" id="@Job.JobId">Activate this job</span></li>
-            <p id="activate-result-@Job.JobId">
-            </p>
-        }
-        else
-        {
-            <li class="btn">This job has been activated</li>
-
-        }
-
-        @if (Job.Completed == false)
-        {
-            <li class="btn">This job has not been completed yet. <span class="complete" id="@Job.JobId">Complete this job</span></li>
-            <p id="complete-result-@Job.JobId">
-            </p>
-        }
-        else
-        {
-            <li class="btn">This job has been completed</li>
-        }
     </ul>
 
 
