@@ -16,7 +16,7 @@ namespace MrFixIt.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var thisWorker = db.Workers.Include(i =>i.Jobs).FirstOrDefault(i => i.UserName == User.Identity.Name);
+            var thisWorker = db.Workers.Include(workers =>workers.Jobs).FirstOrDefault(users => users.UserName == User.Identity.Name);
             if (thisWorker != null)
             {
                 return View(thisWorker);
