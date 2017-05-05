@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MrFixIt.Controllers
 {
@@ -14,17 +13,19 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // GET: /<controller>/
+        //Displays Index page
         public IActionResult Index()
         {
             return View(db.Jobs.Include(workers => workers.Worker).ToList());
         }
 
+        //Displays Create page
         public IActionResult Create()
         {
             return View();
         }
 
+        //Posts a new job to the database
         [HttpPost]
         public IActionResult Create(Job job)
         {
@@ -33,12 +34,14 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
+        //Displays Claim partial
         public IActionResult Claim(int id)
         {
             var thisItem = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
             return View(thisItem);
         }
 
+        //Posts worker who claimed job to database
         [HttpPost]
         public IActionResult Claim(Job job)
         {
@@ -48,16 +51,7 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost]
-        //public IActionResult Claim(string title, string description, bool completed, bool pending, int jobId)
-        //{
-        //    var job = db.Jobs.FirstOrDefault(jobs => jobs.JobId == jobId);
-        //    job.Worker = db.Workers.FirstOrDefault(jobs => jobs.UserName == User.Identity.Name);
-        //    db.Entry(job).State = EntityState.Modified;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
+        //Displays activate parital
         public IActionResult Activate(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
@@ -68,6 +62,7 @@ namespace MrFixIt.Controllers
             return View(thisJob);
         }
 
+        //Displays complete partial
         public IActionResult Complete(int id)
         {
             var thisJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);

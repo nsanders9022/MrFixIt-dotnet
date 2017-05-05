@@ -33,6 +33,7 @@ namespace MrFixIt.Controllers
         //    return View();
         //}
 
+            //Displays Account index page. Displays differently depending on if user is signed in or not.
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -46,12 +47,13 @@ namespace MrFixIt.Controllers
             }
         }
 
-
+        //Shows register page
         public IActionResult Register()
         {
             return View();
         }
 
+        //Creates a new user and posts it to the database
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -67,11 +69,13 @@ namespace MrFixIt.Controllers
             }
         }
 
+        //Shows login page
         public IActionResult Login()
         {
             return View();
         }
 
+        //Logs the user in
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -86,6 +90,7 @@ namespace MrFixIt.Controllers
             }
         }
 
+        //Logs the user out
         [HttpGet]
         public async Task<IActionResult> LogOff()
         {
