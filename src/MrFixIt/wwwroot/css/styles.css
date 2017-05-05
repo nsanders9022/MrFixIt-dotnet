@@ -1,6 +1,15 @@
 ﻿body {
     padding-top: 70px;
     color: navy;
+    background-color:beige;
+}
+
+.header {
+    /*background-image: url("http://www.theoriginalmrfixit.com/uploads/2/9/3/4/29345805/2099804_orig.png");
+    background-size: contain;
+    background-repeat: no-repeat;*/
+    height: 200px;
+    width: 100%;
 }
 
 .link {
@@ -10,4 +19,13 @@
 
 .property {
     font-weight: bold;
+}
+
+img {
+    height: 200px;
+    width: auto:
+}
+
+#tools {
+    float:right;
 }
